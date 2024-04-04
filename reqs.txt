@@ -1,0 +1,4 @@
+Pillow
+Selenium 
+Requests
+twilio
