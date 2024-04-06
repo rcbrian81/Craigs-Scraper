@@ -1,5 +1,6 @@
-import smtplib
 from email.message import EmailMessage
+from log import log
+import smtplib
 import time
 import os
 
@@ -9,7 +10,7 @@ alert_message = 'Craigs Alert LS: '
 
 
 def send_emails(emails_content):
-    print(f"sending {len(emails_content)} emails.")
+    log(f"sending {len(emails_content)} emails.")
     if len(emails_content) > 0:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
@@ -30,7 +31,7 @@ from twilio.rest import Client
 
 
 def send_sms(matches):
-    print(f"sending {len(matches)} SMSes.")
+    log(f"sending {len(matches)} SMSes.")
     account_sid = os.environ.get('twilio-sid')
     auth_token = os.environ.get('twilio-token')
     client = Client(account_sid, auth_token)

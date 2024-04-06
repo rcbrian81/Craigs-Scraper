@@ -1,7 +1,7 @@
 #Improvement: Make Key Phrases matching faster.
 from datetime import datetime
 from log import log
-import messager
+import messanger
 import scraper
 import clock
 import time
@@ -42,7 +42,7 @@ while(True):
         log(f"{cycleCount} New cycle === === === === === === === === === === === === === === === === === === === === = {cycleCount}")
         look_for_new_maches()
         if cycleCount > 1:
-            messager.send_emails(matches)
+            messanger.send_emails(matches)
         time.sleep(interval_time_seconds)
     else:
         log(f"It is {current_hour}:{current_minute}")
