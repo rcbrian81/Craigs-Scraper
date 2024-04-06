@@ -5,7 +5,6 @@ from log import log
 import requests
 import io
 import time
-from PIL import Image
 import pickle
 import os
 log("Running scraper.py")
@@ -22,7 +21,6 @@ def scroll_down(d):
 
 def look_for_new_titles():
     #log("running look_for_new_titles() in scraper.py")
-    log("looking for new titles")
     titles = get_titles()
     new_titles = {}
     max_listing_to_look_at = 20
@@ -58,9 +56,9 @@ def look_for_new_titles():
     with open(data_file_name, 'wb') as file:
         startIndex = len(titles)-max_listing_to_look_at
         endIndex = len(titles)-1
-        log(f"Start: {startIndex} End: {endIndex}")
+        #log(f"Start: {startIndex} End: {endIndex}")
         pickle.dump(titles[startIndex:endIndex+1], file)
-    log("exiting look_for_new_titles() in scraper.py")
+    #log("exiting look_for_new_titles() in scraper.py")
     return new_titles
 
 def get_titles():
@@ -72,7 +70,7 @@ def get_titles():
         log(f"{data_file_name} doesn't exist. It will be created when saving data.")
 
     log(f"Previous titles found: {len(titles)}")
-    for title in titles:
-        log('        ' +title[:len(title)//3] + '...')
+    # for title in titles:
+    #     log('        ' +title[:len(title)//3] + '...')
     return titles
 

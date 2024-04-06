@@ -1,4 +1,4 @@
-on = True 
+on = False 
 def log(str):
     if on:
         print(str)

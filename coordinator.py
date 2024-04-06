@@ -7,13 +7,13 @@ import clock
 import time
 
 
-start_hour = 5
-end_hour = 23
+start_hour = 10
+end_hour = 4
 interval_time_seconds = 60
 
 log("Running coordinator.py")
 matches = {}
-key_phrases = ['must take all','sectional','sofa''clothes','cat tree','cat tower','hanger','mirror','planter']
+key_phrases = ['must take all','sectional','sofa''clothes','cat tree','cat tower','hanger','mirror','planter','dozer',]
 def look_for_new_maches():
     
     new_items = scraper.look_for_new_titles()
@@ -37,7 +37,7 @@ cycleCount = 0
 while(True):
     current_hour, current_minute = clock.get_hour_and_minute()
 
-    if current_hour > 5 and current_hour < end_hour:
+    if clock.is_hour_in_range(current_hour,start_hour, end_hour):
         cycleCount += 1
         log(f"{cycleCount} New cycle === === === === === === === === === === === === === === === === === === === === = {cycleCount}")
         look_for_new_maches()
@@ -49,4 +49,3 @@ while(True):
         clock.sleep_until_hour(start_hour)
     
 
-log("exiting coordinator.py")

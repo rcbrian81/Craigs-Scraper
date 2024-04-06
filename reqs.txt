@@ -1,6 +1,2 @@
-Pillow
-Selenium 
-Requests
-twilio
-smtplib
-email
+selenium
+requests
