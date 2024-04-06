@@ -5,7 +5,7 @@ import time
 import os
 
 
-email = os.environ.get('my-email')
+email = os.environ.get('my_email')
 alert_message = 'Craigs Alert LS: '
 
 
@@ -32,8 +32,8 @@ from twilio.rest import Client
 
 def send_sms(matches):
     log(f"sending {len(matches)} SMSes.")
-    account_sid = os.environ.get('twilio-sid')
-    auth_token = os.environ.get('twilio-token')
+    account_sid = os.environ.get('twilio_sid')
+    auth_token = os.environ.get('twilio_token')
     client = Client(account_sid, auth_token)
     for title in matches:
         url = matches[title]
@@ -41,7 +41,7 @@ def send_sms(matches):
         message = client.messages.create(
             body=message,
             from_='7608284115',
-            to=os.environ.get('my-number')
+            to=os.environ.get('my_number')
         )
 
 
